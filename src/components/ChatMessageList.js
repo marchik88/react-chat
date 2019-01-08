@@ -1,14 +1,14 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from 'material-ui/styles';
 import ChatMessage from './ChatMessage';
 
 const styles = theme => ({
   messagesWrapper: {
-    width: '100%',
+    overflowX: 'scroll',
     height: '100%',
+    width: '100%',
     paddingTop: theme.spacing.unit * 3,
     paddingBottom: '120px',
-    overflowX: 'scroll',
   },
 });
 
@@ -29,9 +29,9 @@ class ChatMessageList extends React.Component {
   }
 
   render() {
-    const {classes, messages} = this.props;
-
-    return(
+    const { classes, messages } = this.props;
+  
+    return (
       <div className={classes.messagesWrapper} ref="messagesWrapper">
         {messages && messages.map((message, index) => (
           <ChatMessage key={index} {...message} />

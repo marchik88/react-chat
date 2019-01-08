@@ -1,9 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-import Paper from '@material-ui/core/Paper';
+import { withStyles } from 'material-ui';
+import Typography from 'material-ui/Typography';
+import Avatar from 'material-ui/Avatar';
+import Paper from 'material-ui/Paper';
 
 import titleInitials from '../utils/title-initials';
 
@@ -12,9 +12,9 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit *3}px`,
+    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 3}px`,
   },
-  messageWrapperFromMe: {
+  messageWrappperFromMe: {
     justifyContent: 'flex-end',
   },
   message: {
@@ -25,11 +25,11 @@ const styles = theme => ({
   },
   messageFromMe: {
     marginRight: theme.spacing.unit * 2,
-    backgroundColor: '#e6dcff',
+    backgroundColor: '#e6dcff'
   },
 });
 
-const ChatMessage = ({ classes, sender , content}) => {
+const ChatMessage = ({ classes, sender, content }) => {
   const isMessageFromMe = sender === 'me';
 
   const userAvatar = (
@@ -38,10 +38,10 @@ const ChatMessage = ({ classes, sender , content}) => {
     </Avatar>
   );
 
-  return(
+  return (
     <div className={classnames(
       classes.messageWrapper,
-      isMessageFromMe && classes.messageWrapperFromMe
+      isMessageFromMe && classes.messageWrappperFromMe
     )}>
       {!isMessageFromMe && userAvatar}
       <Paper className={classnames(
@@ -53,13 +53,11 @@ const ChatMessage = ({ classes, sender , content}) => {
         </Typography>
         <Typography variant="body1">
           {content}
-        </Typography>    
+        </Typography>
       </Paper>
       {isMessageFromMe && userAvatar}
-    </div>          
+    </div>
   );
-
 };
-
 
 export default withStyles(styles)(ChatMessage);

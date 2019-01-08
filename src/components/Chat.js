@@ -1,6 +1,6 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import ChatMessageList from './ChatMessageList ';
+import { withStyles } from 'material-ui/styles'
+import ChatMessageList from './ChatMessageList';
 import MessageInput from './MessageInput';
 
 const styles = theme => ({
@@ -12,13 +12,13 @@ const styles = theme => ({
     height: '100%',
     overflow: 'hidden',
   },
-})
+});
 
-const Chat =({ classes, messages}) => (
+const Chat = ({ classes, messages }) => (
   <main className={classes.chatLayout}>
-  <ChatMessageList messages={messages} />
-  <MessageInput />
-  </main> 
+    <ChatMessageList messages={messages} />
+    <MessageInput />
+  </main>
 );
 
 export default withStyles(styles)(Chat);
